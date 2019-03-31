@@ -5,7 +5,7 @@ cd "$(dirname "${BASH_SOURCE}")";
 git pull origin master;
 
 for i in .vimrc .tmux.conf ; do
-	rm ~/$i
+	rm -f ~/$i
 	ln -s $PWD/$i ~
 done
 
