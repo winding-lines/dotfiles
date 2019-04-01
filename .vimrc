@@ -10,6 +10,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-unimpaired'
 Plug 'jremmen/vim-ripgrep'
+Plug 'vim-python/python-syntax'
+Plug 'tell-k/vim-autopep8'
 " Initialize plugin system
 call plug#end()
 
