@@ -14,3 +14,9 @@ if [ ! -d ~/bin ]; then
 fi
 rm -rf ~/bin/bash
 ln -s $PWD/bash ~/bin
+
+[ -d "$HOME/bin" ] || mkdir "$HOME/bin"
+if [ `uname -s` == "Darwin" ] ; then
+  rm -f $HOME/bin/julia
+  ln -s $PWD/bin/julia-darwin $HOME/bin/julia
+fi
