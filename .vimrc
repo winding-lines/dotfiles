@@ -4,6 +4,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin('~/.vim/plugged')
+Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -46,3 +47,12 @@ set textwidth=100           " 100 is the new 80
 filetype plugin indent on
 
 map <Leader>n :NERDTreeToggle<CR>
+
+" if !has("gui_running")
+"     set t_Co=256
+"     set term=xterm-256color
+" endif
+
+" Enable dark or light
+set background=dark
+colorscheme solarized
