@@ -32,14 +32,10 @@ if ! fgrep -q "${BREW_PREFIX}/bin/bash" /etc/shells; then
   chsh -s "${BREW_PREFIX}/bin/bash";
 fi;
 
-# Install `wget` with IRI support.
-
 # Install GnuPG to enable PGP-signing commits.
 brew install gnupg
 
 # Install other useful binaries.
-brew install ack
-#brew install exiv2
 brew install git
 brew install git-lfs
 brew install imagemagick --with-webp
@@ -50,6 +46,12 @@ brew install rlwrap
 brew install tree
 brew install vbindiff
 brew install zopfli
+brew install vim
+
+
+# Install fonts https://github.com/ryanoasis/nerd-fonts#font-installation
+brew tap caskroom/fonts
+brew cask install font-hack-nerd-font
 
 # Remove outdated versions from the cellar.
 brew cleanup
