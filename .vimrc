@@ -13,6 +13,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'jremmen/vim-ripgrep'
 Plug 'vim-python/python-syntax'
 Plug 'tell-k/vim-autopep8'
+Plug 'editorconfig/editorconfig-vim'
 " Initialize plugin system
 call plug#end()
 
