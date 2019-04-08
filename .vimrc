@@ -53,6 +53,8 @@ map <Leader>n :NERDTreeToggle<CR>
 "     set term=xterm-256color
 " endif
 
-" Enable dark or light
-set background=dark
-colorscheme solarized
+if globpath(&runtimepath, 'colors/solarized.vim', 1) !=# ''
+  " Enable dark or light
+  set background=dark
+  colorscheme solarized
+endif
