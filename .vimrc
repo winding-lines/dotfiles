@@ -58,3 +58,6 @@ if globpath(&runtimepath, 'colors/solarized.vim', 1) !=# ''
   set background=dark
   colorscheme solarized
 endif
+
+" Ctrl-L to remove the highlight
+nnoremap <C-L> :nohlsearch<CR><C-L>
