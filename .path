@@ -1,10 +1,19 @@
-if [ -d "$HOME/.cargo/bin" ] ; then
-  export PATH="$HOME/.cargo/bin:$PATH"
-fi
+# Set the PATH environment variable.
+# vim: set filetype=bash
 
-if [ -d "$HOME/bin" ] ; then
-  export PATH="$HOME/bin:$PATH"
-fi
+# Possible extension folders
+EXES=(bin .poetry/bin .yarn/bin .cargo/bin .config/yarn/global/node_modules/.bin)
 
 
+# process all options, you should not need to change code below
+for EXE in "${EXES[@]}" ; do
+  # does the folder exist?
+  if [ -d "$HOME/$EXE" ] ; then
+    # is it already in PATH?
+    if [[ ":$PATH:" != *":$HOME/$EXE:"* ]] ; then
+      # no, add it at the end
+      export PATH="$PATH:$HOME/$EXE"
+    fi
+  fi
+done
 
