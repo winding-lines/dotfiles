@@ -61,3 +61,10 @@ endif
 
 " Ctrl-L to remove the highlight
 nnoremap <C-L> :nohlsearch<CR><C-L>
+
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\   'python': ['flake8', 'black'],
+\}
+

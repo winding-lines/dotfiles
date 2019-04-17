@@ -20,3 +20,5 @@ if [ `uname -s` == "Darwin" ] ; then
   rm -f $HOME/bin/julia
   ln -s $PWD/bin/julia-darwin $HOME/bin/julia
 fi
+
+sh cargo.sh
