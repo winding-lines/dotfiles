@@ -48,6 +48,9 @@ brew install vbindiff
 brew install zopfli
 brew install vim
 
+# https://github.com/wting/autojump
+brew install autojump
+
 
 # Install fonts https://github.com/ryanoasis/nerd-fonts#font-installation
 brew tap caskroom/fonts
