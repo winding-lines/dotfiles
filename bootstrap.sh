@@ -18,7 +18,10 @@ ln -s $PWD/bash ~/bin
 
 if [ `uname -s` == "Darwin" ] ; then
   rm -f $HOME/bin/julia
-  ln -s $PWD/bin/julia-darwin $HOME/bin/julia
+  ln -s $PWD/bin/darwin/julia $HOME/bin/julia
 fi
+rm -f $HOME/bin/clean-path.py
+ln -s $PWD/bin/clean-path.py $HOME/bin/
+
 
 sh cargo.sh
