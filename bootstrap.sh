@@ -9,6 +9,13 @@ for i in .vimrc .tmux.conf .path .ripgrep ; do
 	ln -s $PWD/$i ~
 done
 
+if [ ! -d ~/.ssh ]; then
+  mkdir ~/.ssh
+fi
+
+rm -f ~/.ssh/rc
+ln -s $PWD/ssh/rc ~/.ssh/rc
+
 if [ ! -d ~/bin ]; then
 	mkdir ~/bin
 fi
