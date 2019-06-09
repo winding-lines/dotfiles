@@ -1,2 +1,11 @@
 --type-add
 quasar:*.quasar
+
+--type-add
+properties:*.properties
+
+--type-add
+gradle:*.gradle
+
+--type-add
+conf:*.conf

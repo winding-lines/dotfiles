@@ -1,1 +1,5 @@
 export RIPGREP_CONFIG_PATH=~/.ripgrep
+DIR=$( dirname "${BASH_SOURCE[0]}" )
+if [ -n "$BASH" ]; then
+  source "$DIR"/bash/prompt.sh
+fi
