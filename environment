@@ -1,5 +1,13 @@
-export RIPGREP_CONFIG_PATH=~/.ripgrep
-DIR=$( dirname "${BASH_SOURCE[0]}" )
 if [ -n "$BASH" ]; then
+  DIR=$( dirname "${BASH_SOURCE[0]}" )
   source "$DIR"/bash/prompt.sh
 fi
+
+[ -s "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
+
+export RIPGREP_CONFIG_PATH=~/.ripgrep
+
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+
