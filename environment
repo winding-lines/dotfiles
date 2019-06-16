@@ -1,13 +1,17 @@
 if [ -n "$BASH" ]; then
   DIR=$( dirname "${BASH_SOURCE[0]}" )
   source "$DIR"/bash/prompt.sh
+  #  source $MY_BASH/weaver.bash
+  source "$DIR/bash/mcfly.bash"
+
 fi
 
 [ -s "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
-
 
 export RIPGREP_CONFIG_PATH=~/.ripgrep
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
+alias gpr="git pull --rebase"
+alias gs="git status"
 
