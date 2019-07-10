@@ -10,7 +10,11 @@ fi
 
 export RIPGREP_CONFIG_PATH=~/.ripgrep
 
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+if [ -f /usr/local/etc/profile.d/autojump.sh ] ; then
+  source /usr/local/etc/profile.d/autojump.sh
+elif [ -f $HOME/.autojump/etc/profile.d/autojump.sh ] ; then
+  source $HOME/.autojump/etc/profile.d/autojump.sh
+fi
 
 alias gpr="git pull --rebase"
 alias gs="git status"
