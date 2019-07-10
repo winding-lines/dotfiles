@@ -30,12 +30,13 @@ fi
 rm -f $HOME/bin/clean-path.py
 ln -s $PWD/bin/clean-path.py $HOME/bin/
 
-# check that the environment file is activated
-grep 'dotfiles/environment' ~/.bashrc > /dev/null 2>&1
-if [ $? -ne 0 ] ; then
+function please_setup() {
   echo "please source ~/dotfiles/environment in ~/.bashrc"
   exit 1
-fi
+}
+
+# check that the environment file is activated
+grep 'dotfiles/environment' ~/.bashrc > /dev/null 2>&1 || please_setup
 
 sh cargo.sh
 
