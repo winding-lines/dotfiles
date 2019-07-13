@@ -9,17 +9,12 @@ for i in .vimrc .tmux.conf .path .ripgrep ; do
 	ln -s $PWD/$i ~
 done
 
-if [ ! -d ~/.ssh ]; then
-  mkdir ~/.ssh
-fi
+[[ -d "$HOME/.ssh" ]] || mkdir "$HOME/.ssh"
 
 rm -f ~/.ssh/rc
 ln -s $PWD/ssh/rc ~/.ssh/rc
 
-if [ ! -d ~/bin ]; then
-	mkdir ~/bin
-fi
-[ -d "$HOME/bin" ] || mkdir "$HOME/bin"
+[[ -d "$HOME/bin" ]] || mkdir "$HOME/bin"
 rm -rf ~/bin/bash
 ln -s $PWD/bash ~/bin
 
@@ -31,12 +26,18 @@ rm -f $HOME/bin/clean-path.py
 ln -s $PWD/bin/clean-path.py $HOME/bin/
 
 function please_setup() {
-  echo "please source ~/dotfiles/environment in ~/.bashrc"
+  if [ -f ~/bashrc ] && [ grep -q 'dotfiles/environment' ~/.bashrc ] ; then
+    return
+  fi
+  if grep -q 'dotfiles/environment' ~/.bash_profile ; then
+    return
+  fi
+  echo "please source ~/dotfiles/environment in ~/.bashrc or ~/.bash_profile"
   exit 1
 }
 
 # check that the environment file is activated
-grep 'dotfiles/environment' ~/.bashrc > /dev/null 2>&1 || please_setup
+please_setup
 
 sh cargo.sh
 
