@@ -6,7 +6,9 @@ then
   if [ $? -eq 0  ] ; then
     rustup update
   else
-    echo "rustup not installed"
+    echo "ERROR: rustup not installed"
+    echo "Please see http://rustup.rs"
+    exit 1
   fi
 
 
