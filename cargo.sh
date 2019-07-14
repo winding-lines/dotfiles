@@ -1,3 +1,10 @@
+if [[ -f $HOME/.cargo/bin/rg ]] ; then
+  echo
+  echo -n "Note: ripgrep exists and has last been changed on "
+  stat /Users/mseritan/.cargo/bin/rg | cut -f 2 -d '"'
+  echo
+fi
+
 read -p "Update rust and cargo commands? " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
