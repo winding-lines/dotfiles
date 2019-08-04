@@ -19,3 +19,7 @@ fi
 alias gpr="git pull --rebase"
 alias gs="git status"
 
+if [ -f $HOME/OneDrive\ -\ Microsoft ] ; then
+  alias todo='vim ~/OneDrive\ -\ Microsoft/notes/todo.md '
+fi
+
