@@ -25,6 +25,7 @@ function setup_vi() {
   VIMRC=$HOME/.vim/rc
   if [[ ! -L "$file" || ! -d "$file" ]] ; then
       rm -rf $VIMRC
+      mkdir -p ~/.vim
       ln -s ~/dotfiles/.vim/rc $VIMRC
   fi
   PLUG=$HOME/.vim/autoload/plug.vim
