@@ -1,7 +1,7 @@
 if [[ -f $HOME/.cargo/bin/rg ]] ; then
   echo
   echo -n "Note: ripgrep exists and has last been changed on "
-  stat /Users/mseritan/.cargo/bin/rg | cut -f 2 -d '"'
+  stat $HOME/.cargo/bin/rg | cut -f 2 -d '"'
   echo
 fi
 
@@ -21,7 +21,7 @@ then
 
   command -v cargo 2> /dev/null 1>&2
   if [ $? -eq 0  ] ; then
-    for cmd in ripgrep bat lsd fd-find know-thy-shell ; do
+    for cmd in ripgrep bat lsd fd-find ; do
       cargo install -f $cmd
     done
   else
