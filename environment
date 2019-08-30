@@ -8,6 +8,11 @@ fi
 
 [ -s "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
+if [ -d "$HOME/bin" ] ; then
+  PATH="$HOME/bin:$PATH"
+  export PATH
+fi
+
 export RIPGREP_CONFIG_PATH=~/.ripgrep
 
 if [ -f /usr/local/etc/profile.d/autojump.sh ] ; then
