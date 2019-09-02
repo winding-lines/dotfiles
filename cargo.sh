@@ -1,7 +1,7 @@
 if [[ -f $HOME/.cargo/bin/rg ]] ; then
   echo
-  echo -n "Note: ripgrep exists and has last been changed on "
-  stat $HOME/.cargo/bin/rg | cut -f 2 -d '"'
+  RG=`stat /Users/mseritan/.cargo/bin/rg | cut -f 2 -d '"'`
+  echo -n "Note: ripgrep exists and has last been changed on $RG"
   echo
 fi
 
