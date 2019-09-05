@@ -17,6 +17,10 @@ if [ -d "$HOME/bin" ] ; then
   export PATH
 fi
 
+if [ -d $HOME/.cargo/bin ] ; then
+  export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
 export RIPGREP_CONFIG_PATH=~/.ripgrep
 
 if [ -f /usr/local/etc/profile.d/autojump.sh ] ; then

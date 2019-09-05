@@ -52,9 +52,5 @@ brew install vim
 brew install autojump
 
 
-# Install fonts https://github.com/ryanoasis/nerd-fonts#font-installation
-brew tap caskroom/fonts
-brew cask install font-hack-nerd-font
-
 # Remove outdated versions from the cellar.
 brew cleanup
