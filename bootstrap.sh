@@ -15,6 +15,13 @@ for i in .vimrc .tmux.conf .path .ripgrep ; do
 	ln -s $PWD/$i ~
 done
 
+[ -d $HOME/.config ] || mkdir $HOME/.config
+
+for i in starship.toml ; do
+  rm -f ~/.config/$i
+  ln -s $PWD/$i ~/.config
+done
+
 function setup_vi() {
   if [[ -f /etc/rpi-issue ]] ; then
      dpkg -s vim > /dev/null 2>&1
