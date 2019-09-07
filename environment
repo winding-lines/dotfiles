@@ -1,5 +1,8 @@
+
+# Setup cargo if present
 [ -s "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
+# Integrate command line history helper
 if [ -n "$BASH" ]; then
   DIR=$( dirname "${BASH_SOURCE[0]}" )
   source "$DIR"/bash/prompt.sh
@@ -12,14 +15,16 @@ if [ -n "$BASH" ]; then
   fi
 fi
 
-if [ -d "$HOME/bin" ] ; then
-  PATH="$HOME/bin:$PATH"
-  export PATH
-fi
+add_to_path_if_present () {
+  if [[ -d "$1" ]] ; then
+    if [[ ":$PATH:" != *":$1:"* ]]; then
+      PATH="$1:$PATH"
+    fi
+  fi
+}
 
-if [ -d $HOME/.cargo/bin ] ; then
-  export PATH="$HOME/.cargo/bin:$PATH"
-fi
+add_to_path_if_present $HOME/bin
+add_to_path_if_present $HOME/.cargo/bin
 
 export RIPGREP_CONFIG_PATH=~/.ripgrep
 
