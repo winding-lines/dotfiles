@@ -32,6 +32,10 @@ if [ -f /usr/local/etc/profile.d/autojump.sh ] ; then
   source /usr/local/etc/profile.d/autojump.sh
 elif [ -f $HOME/.autojump/etc/profile.d/autojump.sh ] ; then
   source $HOME/.autojump/etc/profile.d/autojump.sh
+else
+  echo Install autojmp
+  echo "   https://github.com/wting/autojump"
+  exit 1
 fi
 
 alias gpr="git pull --rebase"

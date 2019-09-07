@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+
+# fetch the latest if a git-* ssh key is present
 ssh-add -l | grep .ssh/git- > /dev/null 2>&1
 if [ $? -eq 0 ] ; then
   cd "$(dirname "${BASH_SOURCE}")";
@@ -10,11 +12,14 @@ else
 fi
 
 
+# install dot files and folders in ~/
 for i in .vimrc .tmux.conf .path .ripgrep ; do
-	rm -f ~/$i
+	rm -f $HOME/$i
 	ln -s $PWD/$i ~
 done
 
+
+# create and install on ~/.config
 [ -d $HOME/.config ] || mkdir $HOME/.config
 
 for i in starship.toml ; do
@@ -77,6 +82,12 @@ function please_setup() {
 
 # check that the environment file is activated
 please_setup
+
+# os specific bootstrap
+grep 'ID=ubuntu' /etc/os-release > /dev/null 2>&1
+if [[ $? -eq 0 ]] ; then
+  ./ubuntu.sh
+fi
 
 source cargo.sh
 
