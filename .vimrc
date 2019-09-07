@@ -1,7 +1,7 @@
 set nocompatible
 
 call plug#begin('~/.vim/plugged')
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-sensible'
@@ -20,10 +20,4 @@ set encoding=UTF-8
 for rcfile in split(globpath("~/.vim/rc", "*.vim"), '\n') 
     execute('source '.rcfile)
 endfor
-
-
-" if !has("gui_running")
-"     set t_Co=256
-"     set term=xterm-256color
-" endif
 
