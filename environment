@@ -1,7 +1,7 @@
 # vim: set filetype=bash
 
 # Do not source environment twice
-if [[ "${_DOTFILES_ENVIRONMENT:""}" == "yes" ]] ; then
+if [[ X"$_DOTFILES_ENVIRONMENT" == "Xyes" ]] ; then
   return 0
 fi
 
