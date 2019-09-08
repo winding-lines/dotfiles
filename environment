@@ -1,3 +1,11 @@
+# vim: set filetype=bash
+
+# Do not source environment twice
+if [[ "${_DOTFILES_ENVIRONMENT:""}" == "yes" ]] ; then
+  return 0
+fi
+
+_DOTFILES_ENVIRONMENT="yes"
 
 # Setup cargo if present
 [ -s "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
@@ -5,14 +13,16 @@
 # Integrate command line history helper
 if [ -n "$BASH" ]; then
   DIR=$( dirname "${BASH_SOURCE[0]}" )
-  source "$DIR"/bash/prompt.sh
   #  source $MY_BASH/weaver.bash
   source "$DIR/bash/mcfly.bash"
 
-  type starship > /dev/null 2>&1
-  if [ $? -eq 0 ] ; then
-    eval "$(starship init bash)"
-  fi
+fi
+
+# Start starship
+#   https://crates.io/crates/starship
+type starship > /dev/null 2>&1
+if [ $? -eq 0 ] ; then
+  eval "$(starship init bash)"
 fi
 
 add_to_path_if_present () {
@@ -25,6 +35,8 @@ add_to_path_if_present () {
 
 add_to_path_if_present $HOME/bin
 add_to_path_if_present $HOME/.cargo/bin
+add_to_path_if_present $HOME/.poetry/bin
+add_to_path_if_present $HOME/.local/bin
 
 export RIPGREP_CONFIG_PATH=~/.ripgrep
 
