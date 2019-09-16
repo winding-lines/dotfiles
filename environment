@@ -12,18 +12,18 @@ _DOTFILES_ENVIRONMENT="yes"
 
 # Integrate command line history helper
 if [ -n "$BASH" ]; then
-  DIR=$( dirname "${BASH_SOURCE[0]}" )
-  #  source $MY_BASH/weaver.bash
-  source "$DIR/bash/mcfly.bash"
-
+  # Start starship
+  #   https://crates.io/crates/starship
+  type starship > /dev/null 2>&1
+  if [ $? -eq 0 ] ; then
+    eval "$(starship init bash)"
+  else
+    DIR=$( dirname "${BASH_SOURCE[0]}" )
+    #  source $MY_BASH/weaver.bash
+    source "$DIR/bash/mcfly.bash"
+  fi
 fi
 
-# Start starship
-#   https://crates.io/crates/starship
-type starship > /dev/null 2>&1
-if [ $? -eq 0 ] ; then
-  eval "$(starship init bash)"
-fi
 
 add_to_path_if_present () {
   if [[ -d "$1" ]] ; then
